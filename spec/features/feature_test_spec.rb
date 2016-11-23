@@ -31,8 +31,19 @@ describe "Displaying hitpoints" do
   before do
     sign_in_and_play
   end
-  
+
   it "should display both hitpoints to screen" do
     expect(page).to have_content('P2_hitpoints')
+  end
+end
+
+describe "Attack player" do
+  before do
+    sign_in_and_play
+  end
+
+  it "clicking attack button should display confirmation message" do
+    click_button('attack_p2')
+    expect(page).to have_content('P2_REKT')
   end
 end
