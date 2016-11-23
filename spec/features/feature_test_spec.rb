@@ -1,5 +1,5 @@
 require 'spec_helper'
-
+require_relative 'web_helper'
 
 describe "Player creation" do
   context "when both players enter names" do
@@ -27,14 +27,12 @@ RSpec.feature "Players enter their names", :type => :feature do
 end
 
 describe "Displaying hitpoints" do
-  before do
-    visit('/')
-    fill_in('p1_name', with: 'John')
-    fill_in('p2_name', with: 'Barry')
-    click_button('submit')
-  end
 
+  before do
+    sign_in_and_play
+  end
+  
   it "should display both hitpoints to screen" do
-      expect(page).to have_content('P2_hitpoints')
+    expect(page).to have_content('P2_hitpoints')
   end
 end
