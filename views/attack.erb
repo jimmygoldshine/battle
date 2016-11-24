@@ -1,5 +1,11 @@
 <p><%= @game.whos_suffering.name %> has attacked <%= @game.whos_attacking.name %>. <%= @game.whos_attacking.name %> now has: <%= @game.whos_attacking.hitpoints %>HP.</p>
 
+<% if @game.whos_attacking.hitpoints == 0 %>
+<p> <%= @game.whos_attacking.name %> has lost.</p>
+
+<% end %>
+
+
 <form action="/play" method="get">
   <input type="submit" value="Next">
 </form>
