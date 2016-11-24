@@ -4,3 +4,8 @@ def sign_in_and_play
   fill_in "Player2", :with => "Louisa"
   click_button('Submit')
 end
+
+def sign_in_and_p1_attacks
+  sign_in_and_play
+  visit "/attack"
+end

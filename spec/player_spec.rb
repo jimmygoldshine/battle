@@ -19,10 +19,4 @@ describe Player do
     expect{player1.take_damage}.to change{player1.hitpoints}.by(-10)
   end
 
-  it "should reduce other player's hit points" do
-    expect{player1.attack(player2)}.to change{player2.hitpoints}.by(-10)
-  end
-
-
-
 end

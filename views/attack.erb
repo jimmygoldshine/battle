@@ -1,1 +1,5 @@
-<p>You have attacked <%= @game.player2.name %>. <%= @game.player2.name %> now has: <%= @game.player2.hitpoints %>HP.</p>
+<p><%= @game.whos_suffering.name %> has attacked <%= @game.whos_attacking.name %>. <%= @game.whos_attacking.name %> now has: <%= @game.whos_attacking.hitpoints %>HP.</p>
+
+<form action="/play" method="get">
+  <input type="submit" value="Next">
+</form>

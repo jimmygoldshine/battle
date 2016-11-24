@@ -7,16 +7,22 @@ describe Game do
   let(:p1_name) { double(:p1_name) }
   let(:player2) { double(:player2) }
   let(:p2_name) { double(:p2_name) }
-  #
-  # it "hitpoints should decrease other player's HP by 10 when attacked" do
-  #   allow(player2).to receive(:take_damage).and_return(-10)
-  #   expect(game.attack(player1)).to eq -10
-  # end
 
   it "player should recieve method take damage" do
     expect(player2).to receive(:take_damage)
     game.attack(player2)
   end
+
+  it "should initialize to player1's turn" do
+    expect(game.whos_attacking).to eq player1
+  end
+
+  it "should be player2's turn after player 1 has attacked" do
+    allow(player2).to receive(:take_damage)
+    game.attack(player2)
+    expect(game.whos_attacking).to eq player2
+  end
+
 
 
 end
