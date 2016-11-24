@@ -22,6 +22,7 @@ class Battle < Sinatra::Base
   end
 
   get '/attack' do
+    $p2.take_damage
     erb :attack
   end
 
