@@ -12,7 +12,7 @@ describe Player do
   end
 
   it "player should start with 100 hitpoints" do
-    expect(player1.hitpoints).to eq 100
+    expect(player1.hitpoints).to eq Player::DEFAULT_HIT_POINTS
   end
 
   it "hitpoints should decrease by 10 when attacked is run" do
