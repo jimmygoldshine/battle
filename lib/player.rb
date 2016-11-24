@@ -16,5 +16,5 @@ class Player
   def attack(player_name)
     player_name.take_damage
   end
-  
+
 end
