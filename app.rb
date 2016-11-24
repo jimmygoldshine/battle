@@ -9,21 +9,20 @@ class Battle < Sinatra::Base
   end
 
   post '/names' do
-    $p1 = Player.new(params[:Player1])
-    $p2 = Player.new(params[:Player2])
-    $game = Game.new
+    @player1 = Player.new(params[:Player1])
+    @player2 = Player.new(params[:Player2])
+    $game = Game.new(@player1, @player2)
     redirect '/play'
   end
 
   get '/play' do
-    @player1 = $p1.name
-    @player2 = $p2.name
-    @attack  = session["attack"]
+    @player1 = $game.player1.name
+    @player2 = $game.player2.name
     erb :play
   end
 
   get '/attack' do
-    $game.attack($p2)
+    $game.attack($game.player2)
     erb :attack
   end
 
