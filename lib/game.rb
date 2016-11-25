@@ -4,6 +4,16 @@ class Game
 
   attr_reader :player1, :player2, :whos_attacking, :whos_suffering
 
+  @current_game
+
+  def self.current_game(player1, player2)
+    @current_game = Game.new(player1, player2)
+  end
+
+  def self.now
+    @current_game
+  end
+
   def initialize(player1, player2)
     @player1 = player1
     @player2 = player2
