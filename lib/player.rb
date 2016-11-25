@@ -9,8 +9,8 @@ class Player
     @hitpoints = DEFAULT_HIT_POINTS
   end
 
-  def take_damage
-    @hitpoints -= 10
+  def take_damage(damage)
+    @hitpoints -= damage
   end
 
 end

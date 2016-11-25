@@ -22,7 +22,7 @@ class Game
   end
 
   def attack(player_name)
-    player_name.take_damage
+    player_name.take_damage(random_number)
     switch_turn
   end
 
@@ -34,6 +34,10 @@ class Game
       @whos_attacking = @player1
       @whos_suffering = @player2
     end
+  end
+
+  def random_number
+    rand(1...10)
   end
 
 end

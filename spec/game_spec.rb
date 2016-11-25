@@ -23,6 +23,17 @@ describe Game do
     expect(game.whos_attacking).to eq player2
   end
 
+  context "random damage" do
 
+    it "should return a number between 1 and 10" do
+      expect(game.random_number).to be_kind_of(Integer)
+    end
+
+
+    # it "should take random number off p2's hitpoints" do
+    #   game.attack(player2)
+    #   expect(player2.take).to eq 5
+    # end
+  end
 
 end
