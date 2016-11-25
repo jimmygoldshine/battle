@@ -17,3 +17,9 @@ def sign_in_and_p1_attacks_twice
   click_button('Next')
   visit "/attack"
 end
+
+def sign_in_and_play_with_computer
+  visit "/"
+  fill_in "Player1", :with => "Tudor"
+  click_button('Submit')
+end

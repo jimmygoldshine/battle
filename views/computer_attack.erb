@@ -5,12 +5,7 @@
 
 <% end %>
 
-<% if @game.whos_attacking.name == "Computer" %>
-  <form action="/computer-attack" method="get">
-    <input type="submit" value="Next">
-  </form>
-<% else %>
-  <form action="/play" method="get">
-    <input type="submit" value="Next">
-  </form>
-<% end %>
+
+<form action="/play" method="get">
+  <input type="submit" value="Next">
+</form>
