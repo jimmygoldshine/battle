@@ -1,16 +1,16 @@
-<p><%= @game.whos_suffering.name %> has attacked <%= @game.whos_attacking.name %>. <%= @game.whos_attacking.name %> now has: <%= @game.whos_attacking.hitpoints %>HP.</p>
+<p><%= @game.whos_attacking.name %> has attacked <%= @game.whos_suffering.name %>. <%= @game.whos_suffering.name %> now has: <%= @game.whos_suffering.hitpoints %>HP.</p>
 
-<% if @game.whos_attacking.hitpoints == 0 %>
-<p> <%= @game.whos_attacking.name %> has lost.</p>
+<% if @game.whos_suffering.hitpoints == 0 %>
+<p> <%= @game.whos_suffering.name %> has lost.</p>
 
 <% end %>
 
-<% if @game.whos_attacking.name == "Computer" %>
+<% if @game.whos_suffering.name == "Computer" %>
   <form action="/computer-attack" method="get">
     <input type="submit" value="Next">
   </form>
 <% else %>
-  <form action="/play" method="get">
+  <form action="/switch-turns" method="post">
     <input type="submit" value="Next">
   </form>
 <% end %>

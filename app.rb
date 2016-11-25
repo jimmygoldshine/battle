@@ -27,6 +27,12 @@ class Battle < Sinatra::Base
     erb :play
   end
 
+  post '/switch-turns' do
+    @game.switch_turn
+    @game.switch_turn if @game.paralysed_state == "paralysed"
+    redirect '/play'
+  end
+
   get '/attack' do
     @game.attack(@game.whos_suffering)
     erb :attack
@@ -35,6 +41,11 @@ class Battle < Sinatra::Base
   get '/computer-attack' do
     @game.attack(@game.whos_suffering)
     erb :computer_attack
+  end
+
+  get '/paralyse' do
+    @game.paralyse(@game.whos_suffering)
+    erb :paralyse
   end
 
   run! if app_file == $0

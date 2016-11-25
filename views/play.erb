@@ -6,4 +6,10 @@
 
 <p><%=@game.whos_attacking.name%>'s go!</p>
 
-<a href='/attack'>Attack!!!</a>
+<form action="/attack" method="get">
+  <input type="submit" value="Attack">
+</form>
+
+<form action="/paralyse" method="get">
+  <input type="submit" value="Paralyse">
+</form>

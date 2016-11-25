@@ -1,0 +1,7 @@
+<p><%= @game.whos_attacking.name %> has <%= @game.paralysed_state %> <%= @game.whos_suffering.name %>. <%= @game.whos_suffering.name %> still has: <%= @game.whos_suffering.hitpoints %>HP.</p>
+
+
+
+<form action="/switch-turns" method="post">
+  <input type="submit" value="Next">
+</form>

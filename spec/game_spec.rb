@@ -20,6 +20,7 @@ describe Game do
   it "should be player2's turn after player 1 has attacked" do
     allow(player2).to receive(:take_damage)
     game.attack(player2)
+    game.switch_turn
     expect(game.whos_attacking).to eq player2
   end
 

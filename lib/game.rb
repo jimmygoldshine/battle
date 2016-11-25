@@ -2,7 +2,7 @@ require_relative 'player.rb'
 
 class Game
 
-  attr_reader :player1, :player2, :whos_attacking, :whos_suffering
+  attr_reader :player1, :player2, :whos_attacking, :whos_suffering, :paralysed_state
 
   @current_game
 
@@ -23,7 +23,13 @@ class Game
 
   def attack(player_name)
     player_name.take_damage(random_number)
-    switch_turn
+  end
+
+  def paralyse(player_name)
+    @paralysed_state = "not paralysed"
+    if paralysed?
+      @paralysed_state = "paralysed"
+    end
   end
 
   def switch_turn
@@ -34,6 +40,10 @@ class Game
       @whos_attacking = @player1
       @whos_suffering = @player2
     end
+  end
+
+  def paralysed?
+    rand(1..4) < 3
   end
 
   def random_number
